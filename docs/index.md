@@ -1,4 +1,4 @@
-# lab.jsでの心理学実験・調査デモ
+# lab.jsでの心理学実験・調査まとめ
 
 ## このページについて
 [lab.jsチュートリアル](https://labjs.yucis.net/)にて小林が紹介したソースコードとデモをまとめたものです。研究などで利用される際には引用をお願いいたします。    
@@ -7,7 +7,17 @@
 ## デモ一覧
 ソースコードは右クリックで保存してご利用ください。
 
-### 評価課題（HTML page使用）
+### 評価課題（HTML Page使用）
  * [解説](https://labjs.yucis.net/Page-f1e53b9764094b228329da71aedbbe35) 
  * [ソースコード](rating_page/ratingTaskDemoPage.study.json) 
  * [デモ](rating_page/index.html)
+
+### 評価課題（Canvas Screen使用）
+ * [解説](https://labjs.yucis.net/Screen-8ffb3e5f765a48599dd570ed86949146) 
+ * [ソースコード](rating_screen/ratingScreen.json) 
+ * [デモ](rating_screen/index.html)
+
+### Youtube評価課題
+ * [解説](https://labjs.yucis.net/Youtube-26c6b948df5140b98a6d92f957295a03) 
+ * [ソースコード](youtubeDemo/youtubeDemo.json) 
+ * [デモ](youtubeDemo/index.html)
