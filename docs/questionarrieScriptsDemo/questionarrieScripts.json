@@ -1,0 +1,122 @@
+{
+  "components": {
+    "5": {
+      "id": "5",
+      "type": "lab.html.Page",
+      "items": {
+        "rows": []
+      },
+      "scrollTop": true,
+      "submitButtonText": "次へ",
+      "submitButtonPosition": "right",
+      "files": {
+        "rows": []
+      },
+      "responses": {
+        "rows": [
+          [
+            "",
+            "",
+            "",
+            ""
+          ]
+        ]
+      },
+      "parameters": {
+        "rows": [
+          [
+            {
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        ]
+      },
+      "messageHandlers": {
+        "rows": [
+          [
+            {
+              "title": "generate questionarrie",
+              "message": "before:prepare",
+              "code": "//使い方: 以下の変数を適宜，変更して利用してください\n//＊GUIのContentで作成した項目はすべて上書きされます\n\n//教示タイトル\nconst instructionTitle = '調査';\n\n//教示文\nconst instructionText = '以下の質問項目をよく読み，あなたにもっとも当てはまる選択肢を選んでください。';\n\n//尺度名（データ記録用; 半角英数推奨)\nconst scaleName = 'animalLiking';\n\n//質問項目（['']で囲み，[,]で区切る）\n//項目番号をつける場合にはここに書かずに，↓の設定で行う\nconst items = [\n  'わたしは犬が好きだ', \n  'わたしは猫が好きだ', \n  'わたしは鳥が好きだ', \n  'わたしは馬が好きだ', \n  'わたしは人が好きだ'\n];\n\n//選択肢\n//必要な選択肢の数だけ増減してください（ [{}] と [,] を忘れずに）\n//label: 選択肢の文章（画面に表示）\n//coding: 選択肢を選んだ場合にデータに記録される値\nconst options = [\n  {\n    label: 'まったくあてはまらない',\n    coding: '1'\n  }, \n  {\n    label:'あてはまらない',\n    coding: '2'\n  }, \n  {\n    label:'どちらともいえない',\n    coding: '3'\n  }, \n  {\n    label:'あてはまる',\n    coding: '4'\n  }, \n  {\n    label:'非常によくあてはまる',\n    coding: '5'\n  }\n]\n\n//回答を必須にするか（回答を必須にする場合はtrue,しない場合はfalse)\nconst requiredOption = true;\n\n//各質問項目に項目番号（1. 〜）をいれるか（いれる場合はtrue，いれない場合はfalse）\nconst addItemNumber = true;\n\n//項目順をランダムにするか（ランダムにする場合はtrue,しない場合はfalse)\nconst randomaizedOrder = true;\n\n\n//【注意】ここから下はむやみに変更しないでください【注意】\n//調査を作成\n//教示\nthis.options.items= [\n  {\n    type: \"text\",\n    title: instructionTitle,\n    content: instructionText\n  }\n]\n\n//各項目と尺度名を配列に格納\nlet itemsArray = [];\nlet itemNo;\n\nfor(i in items){\n  itemNo = parseInt(i) + 1;\n  itemsArray.push(\n    {\n      item: items[i],\n      scale: scaleName + '_' + itemNo\n    }\n  )\n}\n\n//ランダム順にする場合に並び替え\nif(randomaizedOrder)\n{\n  itemsArray = this.random.shuffle(itemsArray)\n}\n\n//選択肢を配列に格納\nconst optionsArray =[]\n\nfor (i in options){\n  optionsArray.push({\n    label: options[i].label,\n    coding: options[i].coding\n  })\n}\n\n//質問項目を作成\nconst questions = [];\n\nfor (i in items){\n  questions.push({\n    required: requiredOption,\n    type: 'radio',\n    options: optionsArray,\n    label: addItemNumber? parseInt(i) + 1 + '. ' + itemsArray[i].item: itemsArray[i].item,\n    name: itemsArray[i].scale,\n    shuffle: false\n  })\n  this.options.items.push(questions[i])\n}\n\nthis.options.submitButtonPosition = 'center';"
+            }
+          ]
+        ]
+      },
+      "title": "scale",
+      "_tab": "Content",
+      "width": "m"
+    },
+    "root": {
+      "id": "root",
+      "title": "root",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "5"
+      ],
+      "parameters": {
+        "rows": [
+          [
+            {
+              "name": "",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        ]
+      },
+      "plugins": [
+        {
+          "type": "lab.plugins.Metadata"
+        }
+      ],
+      "metadata": {
+        "title": "Questionarrie",
+        "description": "",
+        "repository": "",
+        "contributors": "Masanori Kobayashi"
+      }
+    }
+  },
+  "version": [
+    20,
+    0,
+    1
+  ],
+  "files": {
+    "files": {
+      "index.html": {
+        "content": "data:text/html,%3C!doctype%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%20%20%3Cmeta%20charset%3D%22utf-8%22%3E%0A%20%20%3Ctitle%3EExperiment%3C%2Ftitle%3E%0A%20%20%3C!--%20viewport%20setup%20--%3E%0A%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1%22%3E%0A%20%20%3C!--%20lab.js%20library%20and%20experiment%20code%20--%3E%0A%20%20%24%7B%20header%20%7D%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%20%20%3C!--%20If%20you'd%20rather%20have%20a%20container%20with%20a%20fixed%20width%0A%20%20%20%20%20%20%20and%20variable%20height%2C%20try%20removing%20the%20fullscreen%20class%20below%20--%3E%0A%20%20%3Cdiv%20class%3D%22container%20fullscreen%22%20data-labjs-section%3D%22main%22%3E%0A%20%20%20%20%3Cmain%20class%3D%22content-vertical-center%20content-horizontal-center%22%3E%0A%20%20%20%20%20%20%3Cdiv%3E%0A%20%20%20%20%20%20%20%20%3Ch2%3ELoading%20Experiment%3C%2Fh2%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EThe%20experiment%20is%20loading%20and%20should%20start%20in%20a%20few%20seconds%3C%2Fp%3E%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%3C%2Fmain%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E%0A",
+        "source": "library"
+      },
+      "style.css": {
+        "content": "data:text/css,%2F*%20Please%20define%20your%20custom%20styles%20here%20*%2F",
+        "source": "library"
+      }
+    },
+    "bundledFiles": {
+      "lib/lab.js": {
+        "type": "application/javascript"
+      },
+      "lib/lab.js.map": {
+        "type": "text/plain"
+      },
+      "lib/lab.fallback.js": {
+        "type": "application/javascript"
+      },
+      "lib/lab.legacy.js": {
+        "type": "application/javascript"
+      },
+      "lib/lab.legacy.js.map": {
+        "type": "text/plain"
+      },
+      "lib/lab.css": {
+        "type": "text/css"
+      },
+      "lib/loading.svg": {
+        "type": "image/svg+xml"
+      }
+    }
+  }
+}
