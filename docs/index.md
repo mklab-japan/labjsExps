@@ -5,7 +5,8 @@
 また，以下のデモへのアクセスを介しての研究・教育用のデータ収集はご遠慮ください（ご自分のサーバーなどにデモをコピーしてご利用ください）。
 
 ## デモ一覧
- * 評価課題（HTML page使用）
-   * [解説](https://labjs.yucis.net/Page-f1e53b9764094b228329da71aedbbe35)
-   *  [ソースコード](rating_page/ratingTaskDemoPage.study.json)
-   * [デモ](rating_page/index.html)
+
+### 評価課題（HTML page使用）
+ * [解説](https://labjs.yucis.net/Page-f1e53b9764094b228329da71aedbbe35) 
+ * [ソースコード](rating_page/ratingTaskDemoPage.study.json) 
+ * [デモ](rating_page/index.html)
