@@ -31,7 +31,7 @@
  * [解説](https://labjs.yucis.net/SART-a03850d716e1489c9f947e7e33f88b94) 
  * [ソースコード](SART_demo/SART_demo.json) 
  * [デモ](SART_demo/index.html)
-
+ 
  ### Brief Implicit Association Test
  * [解説]
  * [ソースコード](biat_foor/biat_food.json) 
