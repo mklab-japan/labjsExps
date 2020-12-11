@@ -34,5 +34,5 @@
  
  ### Brief Implicit Association Test
  * [解説]
- * [ソースコード](biat_foor/biat_food.json) 
+ * [ソースコード](biat_foor/BIAT_food.json) 
  * [デモ](biat_food/index.html)
