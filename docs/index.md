@@ -32,7 +32,7 @@
  * [ソースコード](SART_demo/SART_demo.json) 
  * [デモ](SART_demo/index.html)
  
- ### Brief Implicit Association Test
+### Brief Implicit Association Test
  * [解説]
  * [ソースコード](biat_food/BIAT_food.json) 
  * [デモ](biat_food/index.html)
