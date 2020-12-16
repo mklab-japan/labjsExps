@@ -25,9 +25,9 @@
 ### Scriptsでの多肢選択質問紙
  * [解説](https://labjs.yucis.net/Scripts-2abebf7cb25b4786aca9fbdddfece9fa) 
  * [ソースコード](questionarrieScriptsDemo/questionarrieScripts.json) 
- * [デモ](questionarrieScriptsDemo/index.html)
+ * [デモ](questionarrieScriptsDemo/index.html)  
 
- ### エピソード的未来思考（時間経過でフォーム記録）
+### エピソード的未来思考（時間経過でフォーム記録）
  * [解説](https://labjs.yucis.net/88e894d61bfc482491218adf2473391e)
  * [ソースコード](getFormByTimeout/getFormByTimeoutDemo.json) 
  * [デモ](getFormByTimeout/index.html)
