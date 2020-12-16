@@ -29,8 +29,8 @@
 
 ### エピソード的未来思考（時間経過でフォーム記録）
  * [解説](https://labjs.yucis.net/88e894d61bfc482491218adf2473391e)
- * [ソースコード](getFormByTimeout/getFormByTimeoutDemo.json) 
- * [デモ](getFormByTimeout/index.html)
+ * [ソースコード](getFormByTimeoutDemo/getFormByTimeoutDemo.json) 
+ * [デモ](getFormByTimeoutDemo/index.html)
 
 ### SART（Sustained Attention to Response Task）
  * [解説](https://labjs.yucis.net/SART-a03850d716e1489c9f947e7e33f88b94) 
