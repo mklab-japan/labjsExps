@@ -28,7 +28,7 @@
  * [デモ](questionarrieScriptsDemo/index.html)
 
  ### エピソード的未来思考（時間経過でフォーム記録）
- * [解説]
+ * [解説](https://labjs.yucis.net/88e894d61bfc482491218adf2473391e)
  * [ソースコード](getFormByTimeout/getFormByTimeoutDemo.json) 
  * [デモ](getFormByTimeout/index.html)
 
@@ -38,6 +38,6 @@
  * [デモ](SART_demo/index.html)
  
 ### Brief Implicit Association Test
- * [解説]
+ * [解説](https://labjs.yucis.net/Brief-IAT-e8d27a5f03864401a0ceb29f2260d887)
  * [ソースコード](biat_food/BIAT_food.json) 
  * [デモ](biat_food/index.html)
