@@ -42,7 +42,7 @@
  * [ソースコード](biat_food/BIAT_food.json) 
  * [デモ](biat_food/index.html)
 
- ### intro.jsの利用
-  * [解説](https://labjs.yucis.net/e1a05ea1b1a24dd4a009a1bc234f8950)
+### intro.jsの利用
+ * [解説](https://labjs.yucis.net/e1a05ea1b1a24dd4a009a1bc234f8950)
  * [ソースコード](introJSdemo/introJSdemo.json) 
  * [デモ](introJSdemo/index.html)
