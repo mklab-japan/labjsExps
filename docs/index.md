@@ -46,3 +46,8 @@
  * [解説](https://labjs.yucis.net/e1a05ea1b1a24dd4a009a1bc234f8950)
  * [ソースコード](introJSdemo/introJSdemo.json) 
  * [デモ](introJSdemo/index.html)
+
+### ループを抜ける
+ * [解説](https://labjs.yucis.net/38904817bafa43c69927acb8db47d31a)
+ * [ソースコード](breakLoopDemo/break-loop-demo.json) 
+ * [デモ](breakLoopDemo/index.html)
