@@ -51,3 +51,8 @@
  * [解説](https://labjs.yucis.net/38904817bafa43c69927acb8db47d31a)
  * [ソースコード](breakLoopDemo/break-loop-demo.json) 
  * [デモ](breakLoopDemo/index.html)
+
+### 音を出す
+ * [解説](https://labjs.yucis.net/6d62d1aadcb94b3cb9d20ab56ca61733)
+ * [ソースコード](soundDemo/soundDemo.json)
+ * [デモ](soundDemo/index.html)
