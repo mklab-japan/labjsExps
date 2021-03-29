@@ -56,3 +56,8 @@
  * [解説](https://labjs.yucis.net/6d62d1aadcb94b3cb9d20ab56ca61733)
  * [ソースコード](soundDemo/soundDemo.json)
  * [デモ](soundDemo/index.html)
+
+ ### URLクエリパラメータの取得
+ * [解説](https://labjs.yucis.net/URL-e27828c106034264b1312b1f95591556)
+ * [ソースコード](urlQuery/urlQueryDemo.json)
+ * [デモ](urlQuery/index.html?something=12345)
