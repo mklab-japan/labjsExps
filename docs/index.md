@@ -45,7 +45,7 @@
 ### Go/No-go課題
  * [解説](https://labjs.yucis.net/ca6fbd6f07314b3caf1b349ca6466877)
  * [ソースコード](gonogoDemo/gonogoDemo.json)
- * [デモ](gonogoDemo/index.html)
+ * [デモ](gonogoDemo/)
 
 ### intro.jsの利用
  * [解説](https://labjs.yucis.net/e1a05ea1b1a24dd4a009a1bc234f8950)
