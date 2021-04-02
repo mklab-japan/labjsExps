@@ -1,0 +1,5 @@
+/* Please define your custom styles here */
+.stimuli{
+  transform: rotateZ(-45deg);
+  font-size: 4vh;
+}

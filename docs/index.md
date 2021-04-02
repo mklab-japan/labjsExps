@@ -47,7 +47,6 @@
  * [ソースコード](gonogoDemo/gonogoDemo.json)
  * [デモ](gonogoDemo/index.html)
 
-
 ### intro.jsの利用
  * [解説](https://labjs.yucis.net/e1a05ea1b1a24dd4a009a1bc234f8950)
  * [ソースコード](introJSdemo/introJSdemo.json) 
