@@ -17,6 +17,11 @@
  * [ソースコード](rating_screen/ratingScreen.json) 
  * [デモ](rating_screen/index.html)
 
+### 再認課題（HTML Page使用）
+ * [解説](https://labjs.yucis.net/HTML-1860f4d05ece4d2f902d352467db2668) 
+ * [ソースコード](recognitionDemo/recognitionDemo.json) 
+ * [デモ](recognitionDemo/index.html)
+
 ### Youtube評価課題
  * [解説](https://labjs.yucis.net/Youtube-26c6b948df5140b98a6d92f957295a03) 
  * [ソースコード](youtubeDemo/youtubeDemo.json) 
