@@ -59,7 +59,7 @@
 #### ストループ課題
  * [解説]()
  * [ソースコード](namingStroop/namingStroop.json)
- * [デモ](namingStroop/index.html)
+ * [デモ](namingStroop/)
 
 ### その他
 
