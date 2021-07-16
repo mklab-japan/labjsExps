@@ -6,7 +6,7 @@ const study = lab.util.fromObject({
   "plugins": [
     {
       "type": "metadata",
-      "path": undefined
+      "path": "lab.plugins.Metadata"
     },
     {
       "type": "lab.plugins.Download",
@@ -14,12 +14,6 @@ const study = lab.util.fromObject({
       "path": undefined
     }
   ],
-  "metadata": {
-    "title": "cardGambling",
-    "description": "",
-    "repository": "",
-    "contributors": "Masanori Kobayashi"
-  },
   "files": {},
   "responses": {},
   "content": [
