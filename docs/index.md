@@ -57,12 +57,12 @@
  * [デモ](gonogoDemo/)
 
 #### ストループ課題
- * [解説]()
+ * [解説](https://labjs.yucis.net/51742bbfdfb94674b628cbaf130b41c9)
  * [ソースコード](namingStroop/namingStroop.json)
  * [デモ](namingStroop/)
 
-#### Gamble課題
- * [解説]()
+#### カード課題（ギャンブル課題）
+ * [解説](https://labjs.yucis.net/27f10502b65f4e72bd25e79f77a0ced1)
  * [ソースコード](cardGamblingDemo/cardGambling.json)
  * [デモ](cardGamblingDemo/)
 
