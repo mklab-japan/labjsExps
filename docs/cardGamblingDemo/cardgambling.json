@@ -1,0 +1,650 @@
+{
+  "components": {
+    "1": {
+      "id": "1",
+      "type": "lab.html.Page",
+      "items": [
+        {
+          "type": "text",
+          "title": "これからカードを使ったゲームに挑戦していただきます。",
+          "content": "2つのカードが表示されます。そのうち，1つは当たり，もう1つは外れです。当たりの場合は賞金を獲得でき，外れの場合は罰金となります。できるだけ，当たりを引いて，多くのお金を稼いでください！"
+        }
+      ],
+      "scrollTop": true,
+      "submitButtonText": "次へ",
+      "submitButtonPosition": "right",
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "wallet",
+          "value": "1000",
+          "type": "string"
+        },
+        {
+          "name": "gain",
+          "value": "100",
+          "type": "string"
+        },
+        {
+          "name": "loss",
+          "value": "100",
+          "type": "string"
+        },
+        {
+          "name": "trialNo",
+          "value": "10",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "end",
+          "code": "window.wallet = parseInt(this.parameters.wallet)\nwindow.gain = this.parameters.gain\nwindow.loss = this.parameters.loss\nwindow.trialNo = this.parameters.trialNo"
+        }
+      ],
+      "title": "Inst",
+      "_tab": "Parameters",
+      "notes": "wallet：初期の所持金\ngain：当たり時の獲得金額\nloss：外れ時の損失金額（計算時に引く値なので，正の整数にする）\ntiralNo：繰り返し試行の回数\n\n○カスタマイズ\n・教示を変えたい場合は右上の「･･･」を選び，Templateのチェックを外して下さい\n・色々なデッキを作りたい場合はInstとgamePhaseをまるごとコピーして，以下のgainとlossを変化させたものを複数作り，そのいずれかがランダムに選ばれるようにするとよいかもしれません。",
+      "_template": true
+    },
+    "2": {
+      "id": "2",
+      "type": "lab.flow.Loop",
+      "children": [
+        "9"
+      ],
+      "templateParameters": {
+        "columns": [],
+        "rows": []
+      },
+      "sample": {
+        "mode": "draw-shuffle",
+        "n": ""
+      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "gain",
+          "value": "100",
+          "type": "string"
+        },
+        {
+          "name": "loss",
+          "value": "100",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "const gain = window.gain\nconst loss = window.loss\nlet gainCard;\n\nconst trialNo = window.trialNo;\nlet trials = [];\n\nfor(let i = 0; i < trialNo; i++)\n{\n  gainCard = this.random.choice([\"right\", \"left\"])\n  trials.push(\n    {\n      gainCard: gainCard\n    }\n  )\n}\nthis.options.templateParameters = trials;"
+        }
+      ],
+      "title": "gamePhase",
+      "_tab": "Content",
+      "indexParameter": "",
+      "tardy": true
+    },
+    "8": {
+      "id": "8",
+      "type": "lab.canvas.Screen",
+      "content": [
+        {
+          "type": "i-text",
+          "version": "4.5.0",
+          "originX": "center",
+          "originY": "center",
+          "left": 0,
+          "top": 0,
+          "width": 820.26,
+          "height": 120.05,
+          "fill": "tomato",
+          "stroke": null,
+          "strokeWidth": 1,
+          "strokeDashArray": null,
+          "strokeLineCap": "butt",
+          "strokeDashOffset": 0,
+          "strokeLineJoin": "round",
+          "strokeUniform": false,
+          "strokeMiterLimit": 4,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "flipX": false,
+          "flipY": false,
+          "opacity": 1,
+          "shadow": null,
+          "visible": true,
+          "backgroundColor": "",
+          "fillRule": "nonzero",
+          "paintFirst": "fill",
+          "globalCompositeOperation": "source-over",
+          "skewX": 0,
+          "skewY": 0,
+          "text": "${this.state.response == this.parameters.gainCard? \n'当たり\\n\\n +' + this.parameters.gain : \n'はずれ\\n\\n -' + this.parameters.loss}",
+          "fontSize": 32,
+          "fontWeight": "normal",
+          "fontFamily": "sans-serif",
+          "fontStyle": "normal",
+          "lineHeight": 1.16,
+          "underline": false,
+          "overline": false,
+          "linethrough": false,
+          "textAlign": "center",
+          "textBackgroundColor": "",
+          "charSpacing": 0,
+          "path": null,
+          "direction": "ltr",
+          "id": "78",
+          "styles": {}
+        }
+      ],
+      "viewport": [
+        800,
+        600
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "feedback",
+      "_tab": "Content",
+      "timeout": "1000",
+      "tardy": true
+    },
+    "9": {
+      "id": "9",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "10",
+        "8",
+        "11"
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "trial",
+      "_tab": "Content"
+    },
+    "10": {
+      "id": "10",
+      "type": "lab.canvas.Screen",
+      "content": [
+        {
+          "type": "rect",
+          "version": "4.5.0",
+          "originX": "center",
+          "originY": "center",
+          "left": -175,
+          "top": 0,
+          "width": 150,
+          "height": 200,
+          "fill": "deepskyblue",
+          "stroke": "#000000",
+          "strokeWidth": 5,
+          "strokeDashArray": null,
+          "strokeLineCap": "butt",
+          "strokeDashOffset": 0,
+          "strokeLineJoin": "round",
+          "strokeUniform": false,
+          "strokeMiterLimit": 4,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "flipX": false,
+          "flipY": false,
+          "opacity": 1,
+          "shadow": null,
+          "visible": true,
+          "backgroundColor": "",
+          "fillRule": "nonzero",
+          "paintFirst": "fill",
+          "globalCompositeOperation": "source-over",
+          "skewX": 0,
+          "skewY": 0,
+          "rx": 0,
+          "ry": 0,
+          "id": "175"
+        },
+        {
+          "type": "rect",
+          "version": "4.5.0",
+          "originX": "center",
+          "originY": "center",
+          "left": 175,
+          "top": 0,
+          "width": 150,
+          "height": 200,
+          "fill": "deepskyblue",
+          "stroke": "#000000",
+          "strokeWidth": 5,
+          "strokeDashArray": null,
+          "strokeLineCap": "butt",
+          "strokeDashOffset": 0,
+          "strokeLineJoin": "round",
+          "strokeUniform": false,
+          "strokeMiterLimit": 4,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "flipX": false,
+          "flipY": false,
+          "opacity": 1,
+          "shadow": null,
+          "visible": true,
+          "backgroundColor": "",
+          "fillRule": "nonzero",
+          "paintFirst": "fill",
+          "globalCompositeOperation": "source-over",
+          "skewX": 0,
+          "skewY": 0,
+          "rx": 0,
+          "ry": 0,
+          "id": "176"
+        },
+        {
+          "type": "i-text",
+          "version": "4.5.0",
+          "originX": "center",
+          "originY": "center",
+          "left": 0,
+          "top": -175,
+          "width": 526.32,
+          "height": 27.12,
+          "fill": "black",
+          "stroke": null,
+          "strokeWidth": 1,
+          "strokeDashArray": null,
+          "strokeLineCap": "butt",
+          "strokeDashOffset": 0,
+          "strokeLineJoin": "round",
+          "strokeUniform": false,
+          "strokeMiterLimit": 4,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "flipX": false,
+          "flipY": false,
+          "opacity": 1,
+          "shadow": null,
+          "visible": true,
+          "backgroundColor": "",
+          "fillRule": "nonzero",
+          "paintFirst": "fill",
+          "globalCompositeOperation": "source-over",
+          "skewX": 0,
+          "skewY": 0,
+          "text": "どちらかのカードを選び，クリックしてください",
+          "fontSize": "24",
+          "fontWeight": "normal",
+          "fontFamily": "sans-serif",
+          "fontStyle": "normal",
+          "lineHeight": 1.16,
+          "underline": false,
+          "overline": false,
+          "linethrough": false,
+          "textAlign": "center",
+          "textBackgroundColor": "",
+          "charSpacing": 0,
+          "path": null,
+          "direction": "ltr",
+          "id": "177",
+          "styles": {}
+        },
+        {
+          "type": "aoi",
+          "version": "4.5.0",
+          "originX": "center",
+          "originY": "center",
+          "left": -175,
+          "top": 0,
+          "width": 150,
+          "height": 200,
+          "fill": "rgba(0, 0, 0, 0.2)",
+          "stroke": null,
+          "strokeWidth": 1,
+          "strokeDashArray": null,
+          "strokeLineCap": "butt",
+          "strokeDashOffset": 0,
+          "strokeLineJoin": "round",
+          "strokeUniform": false,
+          "strokeMiterLimit": 4,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "flipX": false,
+          "flipY": false,
+          "opacity": 1,
+          "shadow": null,
+          "visible": true,
+          "backgroundColor": "",
+          "fillRule": "nonzero",
+          "paintFirst": "fill",
+          "globalCompositeOperation": "source-over",
+          "skewX": 0,
+          "skewY": 0,
+          "rx": 0,
+          "ry": 0,
+          "id": "178",
+          "label": "left"
+        },
+        {
+          "type": "aoi",
+          "version": "4.5.0",
+          "originX": "center",
+          "originY": "center",
+          "left": 175,
+          "top": 0,
+          "width": 150,
+          "height": 200,
+          "fill": "rgba(0, 0, 0, 0.2)",
+          "stroke": null,
+          "strokeWidth": 1,
+          "strokeDashArray": null,
+          "strokeLineCap": "butt",
+          "strokeDashOffset": 0,
+          "strokeLineJoin": "round",
+          "strokeUniform": false,
+          "strokeMiterLimit": 4,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "flipX": false,
+          "flipY": false,
+          "opacity": 1,
+          "shadow": null,
+          "visible": true,
+          "backgroundColor": "",
+          "fillRule": "nonzero",
+          "paintFirst": "fill",
+          "globalCompositeOperation": "source-over",
+          "skewX": 0,
+          "skewY": 0,
+          "rx": 0,
+          "ry": 0,
+          "id": "179",
+          "label": "right"
+        },
+        {
+          "type": "i-text",
+          "version": "4.5.0",
+          "originX": "center",
+          "originY": "center",
+          "left": 275,
+          "top": -275,
+          "width": 312.96,
+          "height": 27.12,
+          "fill": "tomato",
+          "stroke": null,
+          "strokeWidth": 1,
+          "strokeDashArray": null,
+          "strokeLineCap": "butt",
+          "strokeDashOffset": 0,
+          "strokeLineJoin": "round",
+          "strokeUniform": false,
+          "strokeMiterLimit": 4,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "flipX": false,
+          "flipY": false,
+          "opacity": 1,
+          "shadow": null,
+          "visible": true,
+          "backgroundColor": "",
+          "fillRule": "nonzero",
+          "paintFirst": "fill",
+          "globalCompositeOperation": "source-over",
+          "skewX": 0,
+          "skewY": 0,
+          "text": "所持金：${window.wallet}円",
+          "fontSize": "24",
+          "fontWeight": "normal",
+          "fontFamily": "sans-serif",
+          "fontStyle": "normal",
+          "lineHeight": 1.16,
+          "underline": false,
+          "overline": false,
+          "linethrough": false,
+          "textAlign": "center",
+          "textBackgroundColor": "",
+          "charSpacing": 0,
+          "path": null,
+          "direction": "ltr",
+          "id": "196",
+          "styles": {}
+        }
+      ],
+      "viewport": [
+        800,
+        600
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "right",
+          "event": "click",
+          "target": "@right",
+          "filter": ""
+        },
+        {
+          "label": "left",
+          "target": "@left",
+          "event": "click"
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "end",
+          "code": "if(this.data.response == this.parameters.gainCard)\n{\n  window.wallet += parseInt(window.gain)\n}\nelse\n{\n  window.wallet -= parseInt(window.loss)\n}"
+        }
+      ],
+      "title": "choice",
+      "_tab": "Content",
+      "tardy": true
+    },
+    "11": {
+      "id": "11",
+      "type": "lab.canvas.Screen",
+      "content": [
+        {
+          "type": "i-text",
+          "version": "4.5.0",
+          "originX": "center",
+          "originY": "center",
+          "left": 0,
+          "top": 0,
+          "width": 417.28,
+          "height": 36.16,
+          "fill": "tomato",
+          "stroke": null,
+          "strokeWidth": 1,
+          "strokeDashArray": null,
+          "strokeLineCap": "butt",
+          "strokeDashOffset": 0,
+          "strokeLineJoin": "round",
+          "strokeUniform": false,
+          "strokeMiterLimit": 4,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "flipX": false,
+          "flipY": false,
+          "opacity": 1,
+          "shadow": null,
+          "visible": true,
+          "backgroundColor": "",
+          "fillRule": "nonzero",
+          "paintFirst": "fill",
+          "globalCompositeOperation": "source-over",
+          "skewX": 0,
+          "skewY": 0,
+          "text": "所持金：${window.wallet}円",
+          "fontSize": 32,
+          "fontWeight": "normal",
+          "fontFamily": "sans-serif",
+          "fontStyle": "normal",
+          "lineHeight": 1.16,
+          "underline": false,
+          "overline": false,
+          "linethrough": false,
+          "textAlign": "center",
+          "textBackgroundColor": "",
+          "charSpacing": 0,
+          "path": null,
+          "direction": "ltr",
+          "id": "197",
+          "styles": {}
+        }
+      ],
+      "viewport": [
+        800,
+        600
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "showWallet",
+      "_tab": "Content",
+      "timeout": "1000",
+      "tardy": true
+    },
+    "root": {
+      "id": "root",
+      "title": "root",
+      "type": "lab.flow.Sequence",
+      "children": [
+        "1",
+        "2"
+      ],
+      "parameters": [],
+      "plugins": [
+        {
+          "type": "metadata"
+        }
+      ],
+      "metadata": {
+        "title": "cardGambling",
+        "description": "",
+        "repository": "",
+        "contributors": "Masanori Kobayashi"
+      }
+    }
+  },
+  "version": [
+    21,
+    "alpha",
+    1
+  ],
+  "files": {
+    "files": {
+      "index.html": {
+        "content": "data:text/html,%3C!doctype%20html%3E%0A%3Chtml%3E%0A%3Chead%3E%0A%20%20%3Cmeta%20charset%3D%22utf-8%22%3E%0A%20%20%3Ctitle%3EExperiment%3C%2Ftitle%3E%0A%20%20%3C!--%20viewport%20setup%20--%3E%0A%20%20%3Cmeta%20name%3D%22viewport%22%20content%3D%22width%3Ddevice-width%2C%20initial-scale%3D1%22%3E%0A%20%20%3C!--%20lab.js%20library%20and%20experiment%20code%20--%3E%0A%20%20%24%7B%20header%20%7D%0A%3C%2Fhead%3E%0A%3Cbody%3E%0A%20%20%3C!--%20If%20you'd%20rather%20have%20a%20container%20with%20a%20fixed%20width%0A%20%20%20%20%20%20%20and%20variable%20height%2C%20try%20removing%20the%20fullscreen%20class%20below%20--%3E%0A%20%20%3Cdiv%20class%3D%22container%20fullscreen%22%20data-labjs-section%3D%22main%22%3E%0A%20%20%20%20%3Cmain%20class%3D%22content-vertical-center%20content-horizontal-center%22%3E%0A%20%20%20%20%20%20%3Cdiv%3E%0A%20%20%20%20%20%20%20%20%3Ch2%3ELoading%20Experiment%3C%2Fh2%3E%0A%20%20%20%20%20%20%20%20%3Cp%3EThe%20experiment%20is%20loading%20and%20should%20start%20in%20a%20few%20seconds%3C%2Fp%3E%0A%20%20%20%20%20%20%3C%2Fdiv%3E%0A%20%20%20%20%3C%2Fmain%3E%0A%20%20%3C%2Fdiv%3E%0A%3C%2Fbody%3E%0A%3C%2Fhtml%3E%0A",
+        "source": "library"
+      },
+      "style.css": {
+        "content": "data:text/css,%2F*%20Please%20define%20your%20custom%20styles%20here%20*%2F",
+        "source": "library"
+      }
+    },
+    "bundledFiles": {
+      "lib/lab.js": {
+        "type": "application/javascript"
+      },
+      "lib/lab.js.map": {
+        "type": "text/plain"
+      },
+      "lib/lab.css": {
+        "type": "text/css"
+      },
+      "lib/loading.svg": {
+        "type": "image/svg+xml"
+      }
+    }
+  }
+}

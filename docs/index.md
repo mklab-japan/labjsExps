@@ -61,6 +61,11 @@
  * [ソースコード](namingStroop/namingStroop.json)
  * [デモ](namingStroop/)
 
+#### Gamble課題
+ * [解説]()
+ * [ソースコード](cardGamblingDemo/cardGambling.json)
+ * [デモ](cardGamblingDemo/)
+
 ### その他
 
 #### intro.jsの利用
