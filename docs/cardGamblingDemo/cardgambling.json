@@ -1,7 +1,7 @@
 {
   "components": {
-    "1": {
-      "id": "1",
+    "2": {
+      "id": "2",
       "type": "lab.html.Page",
       "items": [
         {
@@ -56,11 +56,11 @@
       "notes": "wallet：初期の所持金\ngain：当たり時の獲得金額\nloss：外れ時の損失金額（計算時に引く値なので，正の整数にする）\ntiralNo：繰り返し試行の回数\n\n○カスタマイズ\n・教示を変えたい場合は右上の「･･･」を選び，Templateのチェックを外して下さい\n・色々なデッキを作りたい場合はInstとgamePhaseをまるごとコピーして，以下のgainとlossを変化させたものを複数作り，そのいずれかがランダムに選ばれるようにするとよいかもしれません。",
       "_template": true
     },
-    "2": {
-      "id": "2",
+    "3": {
+      "id": "3",
       "type": "lab.flow.Loop",
       "children": [
-        "9"
+        "4"
       ],
       "templateParameters": {
         "columns": [],
@@ -103,99 +103,13 @@
       "indexParameter": "",
       "tardy": true
     },
-    "8": {
-      "id": "8",
-      "type": "lab.canvas.Screen",
-      "content": [
-        {
-          "type": "i-text",
-          "version": "4.5.0",
-          "originX": "center",
-          "originY": "center",
-          "left": 0,
-          "top": 0,
-          "width": 820.26,
-          "height": 120.05,
-          "fill": "tomato",
-          "stroke": null,
-          "strokeWidth": 1,
-          "strokeDashArray": null,
-          "strokeLineCap": "butt",
-          "strokeDashOffset": 0,
-          "strokeLineJoin": "round",
-          "strokeUniform": false,
-          "strokeMiterLimit": 4,
-          "scaleX": 1,
-          "scaleY": 1,
-          "angle": 0,
-          "flipX": false,
-          "flipY": false,
-          "opacity": 1,
-          "shadow": null,
-          "visible": true,
-          "backgroundColor": "",
-          "fillRule": "nonzero",
-          "paintFirst": "fill",
-          "globalCompositeOperation": "source-over",
-          "skewX": 0,
-          "skewY": 0,
-          "text": "${this.state.response == this.parameters.gainCard? \n'当たり\\n\\n +' + this.parameters.gain : \n'はずれ\\n\\n -' + this.parameters.loss}",
-          "fontSize": 32,
-          "fontWeight": "normal",
-          "fontFamily": "sans-serif",
-          "fontStyle": "normal",
-          "lineHeight": 1.16,
-          "underline": false,
-          "overline": false,
-          "linethrough": false,
-          "textAlign": "center",
-          "textBackgroundColor": "",
-          "charSpacing": 0,
-          "path": null,
-          "direction": "ltr",
-          "id": "78",
-          "styles": {}
-        }
-      ],
-      "viewport": [
-        800,
-        600
-      ],
-      "files": [],
-      "responses": [
-        {
-          "label": "",
-          "event": "",
-          "target": "",
-          "filter": ""
-        }
-      ],
-      "parameters": [
-        {
-          "name": "",
-          "value": "",
-          "type": "string"
-        }
-      ],
-      "messageHandlers": [
-        {
-          "title": "",
-          "message": "",
-          "code": ""
-        }
-      ],
-      "title": "feedback",
-      "_tab": "Content",
-      "timeout": "1000",
-      "tardy": true
-    },
-    "9": {
-      "id": "9",
+    "4": {
+      "id": "4",
       "type": "lab.flow.Sequence",
       "children": [
-        "10",
-        "8",
-        "11"
+        "5",
+        "6",
+        "7"
       ],
       "files": [],
       "responses": [
@@ -223,8 +137,8 @@
       "title": "trial",
       "_tab": "Content"
     },
-    "10": {
-      "id": "10",
+    "5": {
+      "id": "5",
       "type": "lab.canvas.Screen",
       "content": [
         {
@@ -508,8 +422,94 @@
       "_tab": "Content",
       "tardy": true
     },
-    "11": {
-      "id": "11",
+    "6": {
+      "id": "6",
+      "type": "lab.canvas.Screen",
+      "content": [
+        {
+          "type": "i-text",
+          "version": "4.5.0",
+          "originX": "center",
+          "originY": "center",
+          "left": 0,
+          "top": 0,
+          "width": 820.26,
+          "height": 120.05,
+          "fill": "tomato",
+          "stroke": null,
+          "strokeWidth": 1,
+          "strokeDashArray": null,
+          "strokeLineCap": "butt",
+          "strokeDashOffset": 0,
+          "strokeLineJoin": "round",
+          "strokeUniform": false,
+          "strokeMiterLimit": 4,
+          "scaleX": 1,
+          "scaleY": 1,
+          "angle": 0,
+          "flipX": false,
+          "flipY": false,
+          "opacity": 1,
+          "shadow": null,
+          "visible": true,
+          "backgroundColor": "",
+          "fillRule": "nonzero",
+          "paintFirst": "fill",
+          "globalCompositeOperation": "source-over",
+          "skewX": 0,
+          "skewY": 0,
+          "text": "${this.state.response == this.parameters.gainCard? \n'当たり\\n\\n +' + this.parameters.gain : \n'はずれ\\n\\n -' + this.parameters.loss}",
+          "fontSize": 32,
+          "fontWeight": "normal",
+          "fontFamily": "sans-serif",
+          "fontStyle": "normal",
+          "lineHeight": 1.16,
+          "underline": false,
+          "overline": false,
+          "linethrough": false,
+          "textAlign": "center",
+          "textBackgroundColor": "",
+          "charSpacing": 0,
+          "path": null,
+          "direction": "ltr",
+          "id": "78",
+          "styles": {}
+        }
+      ],
+      "viewport": [
+        800,
+        600
+      ],
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
+      "title": "feedback",
+      "_tab": "Content",
+      "timeout": "1000",
+      "tardy": true
+    },
+    "7": {
+      "id": "7",
       "type": "lab.canvas.Screen",
       "content": [
         {
@@ -599,20 +599,20 @@
       "title": "root",
       "type": "lab.flow.Sequence",
       "children": [
-        "1",
-        "2"
+        "2",
+        "3"
       ],
       "parameters": [],
       "plugins": [
         {
-          "type": "metadata"
+          "type": "lab.plugins.Metadata"
         }
       ],
       "metadata": {
-        "title": "cardGambling",
+        "title": "",
         "description": "",
         "repository": "",
-        "contributors": "Masanori Kobayashi"
+        "contributors": ""
       }
     }
   },
@@ -637,6 +637,15 @@
         "type": "application/javascript"
       },
       "lib/lab.js.map": {
+        "type": "text/plain"
+      },
+      "lib/lab.fallback.js": {
+        "type": "application/javascript"
+      },
+      "lib/lab.legacy.js": {
+        "type": "application/javascript"
+      },
+      "lib/lab.legacy.js.map": {
         "type": "text/plain"
       },
       "lib/lab.css": {

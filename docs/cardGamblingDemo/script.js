@@ -5,15 +5,21 @@ const study = lab.util.fromObject({
   "parameters": {},
   "plugins": [
     {
-      "type": "metadata",
-      "path": "lab.plugins.Metadata"
+      "type": "lab.plugins.Metadata",
+      "path": undefined
     },
     {
       "type": "lab.plugins.Download",
-      "filePrefix": "cardgambling",
+      "filePrefix": "study",
       "path": undefined
     }
   ],
+  "metadata": {
+    "title": "",
+    "description": "",
+    "repository": "",
+    "contributors": ""
+  },
   "files": {},
   "responses": {},
   "content": [
