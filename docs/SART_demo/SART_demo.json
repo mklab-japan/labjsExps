@@ -3,118 +3,84 @@
     "10": {
       "id": "10",
       "type": "lab.html.Page",
-      "items": {
-        "rows": [
-          [
-            {
-              "type": "text",
-              "title": "ご参加ありがとうございます。",
-              "content": "本研究では，画面に数字が表示されます。その数字が「3」以外の場合は，できるだけ速くかつ正確にスペースキーを押してください。もし，「3」の場合はスペースキーを押ささないでください。"
-            }
-          ],
-          [
-            {
-              "required": true,
-              "type": "text",
-              "title": "時々，課題中に「なに」を考えていたかをお聞きします。",
-              "content": "どのような回答でもかまいませんので，正直にご回答ください。"
-            }
-          ],
-          [
-            {
-              "required": true,
-              "type": "text",
-              "content": "眠くなる場合があるため，寝ないように気をつけてください 。",
-              "title": "準備ができた方は「次へ」を押して，開始してください。"
-            }
-          ],
-          [
-            {
-              "required": true,
-              "type": "html",
-              "content": "<div class = 'content-horizontal-center'><button id = \"nextBtn\">次へ</button></div>"
-            }
-          ]
-        ]
-      },
+      "items": [
+        {
+          "type": "text",
+          "title": "ご参加ありがとうございます。",
+          "content": "本研究では，画面に数字が表示されます。その数字が「3」以外の場合は，できるだけ速くかつ正確にスペースキーを押してください。もし，「3」の場合はスペースキーを押ささないでください。"
+        },
+        {
+          "required": true,
+          "type": "text",
+          "title": "時々，課題中に「なに」を考えていたかをお聞きします。",
+          "content": "どのような回答でもかまいませんので，正直にご回答ください。"
+        },
+        {
+          "required": true,
+          "type": "text",
+          "content": "眠くなる場合があるため，寝ないように気をつけてください 。",
+          "title": "準備ができた方は「次へ」を押して，開始してください。"
+        },
+        {
+          "required": true,
+          "type": "html",
+          "content": "<div class = 'content-horizontal-center'><button id = \"nextBtn\">次へ</button></div>"
+        }
+      ],
       "scrollTop": true,
       "submitButtonText": "次へ",
       "submitButtonPosition": "hidden",
-      "files": {
-        "rows": [
-          [
-            {
-              "localPath": "inst.001.png",
-              "poolPath": "embedded/3c3debfd0f862e2cd8b74bd5429a56760959056bfb6ba3c435ae0e1cc2442603.png"
-            }
-          ]
-        ]
-      },
-      "responses": {
-        "rows": [
-          [
-            "",
-            "",
-            "",
-            ""
-          ]
-        ]
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": []
-      },
+      "files": [
+        {
+          "localPath": "inst.001.png",
+          "poolPath": "embedded/3c3debfd0f862e2cd8b74bd5429a56760959056bfb6ba3c435ae0e1cc2442603.png"
+        }
+      ],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
       "title": "Instruction",
       "_tab": "Content"
     },
     "19": {
       "id": "19",
       "type": "lab.html.Screen",
-      "files": {
-        "rows": []
-      },
-      "responses": {
-        "rows": [
-          [
-            "",
-            "",
-            "",
-            ""
-          ]
-        ]
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": [
-          [
-            {
-              "title": "",
-              "message": "",
-              "code": ""
-            }
-          ]
-        ]
-      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
       "title": "Start",
       "content": "<main class=\"content-horizontal-center content-vertical-center\">\n  <div>\n    <span style = \"font-size: 6vh; font-color: tomato\">START!</span>\n  </div>\n</main>",
       "_tab": "Content",
@@ -127,41 +93,29 @@
         "19",
         "88"
       ],
-      "files": {
-        "rows": []
-      },
-      "responses": {
-        "rows": [
-          [
-            "",
-            "",
-            "",
-            ""
-          ]
-        ]
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": [
-          [
-            {
-              "title": "",
-              "message": "before:prepare",
-              "code": "//参加者ごとに選択肢の順番をランダム化\nlet btnText = [\n  '<div><button id = \"taskRelatedBtn\" style = \"font-size: 2vh\">課題に関する思考を考えていた</button></div>',\n  '<div style><button id = \"taskUnrelatedIntentionBtn\" style = \"font-size: 2vh\">課題以外の思考を意図的に考えていた</button></div>',\n   '<div style><button id = \"taskUnrelatedUnintentionBtn\" style = \"font-size: 2vh\">課題以外の思考を無意図的に考えていた</button></div>',\n  '<div style><button id = \"nothingBtn\" style = \"font-size: 2vh\">何も考えていなかった</button></div>'\n]\n\nbtnText = this.random.shuffle(btnText)\n\nconst esmHtml = '<main class = \"content-horizontal-center content-vertical-center\">' +\n  '<div style = \"font-size: 2.5vh\"><p>直前まで「なに」を考えていたかを選択してください</p>' + \n  btnText[0] +\n  btnText[1] +\n  btnText[2] +\n  btnText[3] +\n  '</div></main>'\n  \nthis.state.esmHtml = esmHtml;"
-            }
-          ]
-        ]
-      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "//参加者ごとに選択肢の順番をランダム化\nlet btnText = [\n  '<div><button id = \"taskRelatedBtn\" style = \"font-size: 2vh\">課題に関する思考を考えていた</button></div>',\n  '<div style><button id = \"taskUnrelatedIntentionBtn\" style = \"font-size: 2vh\">課題以外の思考を意図的に考えていた</button></div>',\n   '<div style><button id = \"taskUnrelatedUnintentionBtn\" style = \"font-size: 2vh\">課題以外の思考を無意図的に考えていた</button></div>',\n  '<div style><button id = \"nothingBtn\" style = \"font-size: 2vh\">何も考えていなかった</button></div>'\n]\n\nbtnText = this.random.shuffle(btnText)\n\nconst esmHtml = '<main class = \"content-horizontal-center content-vertical-center\">' +\n  '<div style = \"font-size: 2.5vh\"><p>直前まで「なに」を考えていたかを選択してください</p>' + \n  btnText[0] +\n  btnText[1] +\n  btnText[2] +\n  btnText[3] +\n  '</div></main>'\n  \nthis.state.esmHtml = esmHtml;"
+        }
+      ],
       "title": "Main",
       "_tab": "Scripts"
     },
@@ -172,54 +126,46 @@
         "66"
       ],
       "templateParameters": {
-        "columns": [],
-        "rows": [
-          [],
-          []
-        ]
+        "columns": [
+          {
+            "name": "",
+            "type": "string"
+          }
+        ],
+        "rows": []
       },
       "sample": {
         "mode": "sequential",
         "n": ""
       },
-      "files": {
-        "rows": []
-      },
-      "responses": {
-        "rows": [
-          [
-            "",
-            "",
-            "",
-            ""
-          ]
-        ]
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": [
-          [
-            {
-              "title": "",
-              "message": "before:prepare",
-              "code": "let stimuliList = [];\n\nlet target = '3'\n\ntarget = {item: target, type: 'nogo'}\n\nlet nontargetList = ['1', '2', '4', '5', '6', '7', '8', '9']\n\nfor(i in nontargetList)\n{\n  nontargetList[i] = {item: nontargetList[i], type: 'go'}\n}\n\nlet maxTrialNo = this.parameters.trialNo;\n\nlet firstItemList = this.random.sample(nontargetList, 1)\nstimuliList = firstItemList\n\nlet lastItemList = this.random.sample(nontargetList, 5)\n\nlet midItemList = this.random.sample(nontargetList, maxTrialNo - 7);\n\nlet targetNo;\n\nif(maxTrialNo = 10)\n{\n  targetNo = 1\n}\nelse if(maxTrialNo >= 14 && maxTrialNo <= 22)\n{\n  targetNo = 2\n}\nelse if(maxTrialNo > 22)\n{\n  targetNo = 3\n}\n\nfor(i = 0; i < targetNo; i++)\n{\n  midItemList.push(target);\n}\n\nmidItemList = this.random.shuffle(midItemList)\n\nfor(i in midItemList)\n{\n  stimuliList.push(midItemList[i])\n}\nfor(i in lastItemList)\n{\n  stimuliList.push(lastItemList[i])\n}\n\nfor(i in stimuliList)\n{\n  this.options.templateParameters.push(stimuliList[i])\n}"
-            }
-          ]
-        ]
-      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "let stimuliList = [];\n\nlet target = '3'\n\nlet targetItem = {\n  item: target, \n  type: 'nogo'\n}\n\nlet nontargetList = ['1', '2', '4', '5', '6', '7', '8', '9']\n\nfor(i in nontargetList)\n{\n  nontargetList[i] = {\n    item: nontargetList[i], \n    type: 'go'\n  }\n}\n\nlet maxTrialNo = this.parameters.trialNo;\n\nlet firstItemList = this.random.sample(nontargetList, 1)\n\nlet lastItemList = this.random.sample(nontargetList, 5, replacement=true)\n\nlet targetNo;\n\nlet midItemList = []\n\nif(maxTrialNo == 10)\n{\n  targetNo = 1\n  midItemList.push(targetItem);\n}\nelse if(maxTrialNo == 14 || maxTrialNo == 18)\n{\n  targetNo = 2\n  for(i = 0; i < targetNo; i++)\n  {\n    midItemList.push(targetItem);\n  }\n}\nelse if(maxTrialNo == 22 || maxTrialNo == 26)\n{\n  targetNo = 3\n  for(i = 0; i < targetNo; i++)\n  {\n    midItemList.push(targetItem);\n  }\n}\n\nlet nontargetNo = maxTrialNo - (6 + targetNo);\n\nlet midNontargetList = this.random.sample(nontargetList, nontargetNo, replacement=true);\n\nfor (item of midNontargetList)\n{\n  midItemList.push(item)\n}\n\nmidItemList = this.random.shuffle(midItemList)\n\nfor(item of firstItemList)\n{\n  stimuliList.push(item)\n}\nfor(item of midItemList)\n{\n  stimuliList.push(item)\n}\nfor(item of lastItemList)\n{\n  stimuliList.push(item)\n}\n\nfor(stimulus of stimuliList)\n{\n  this.options.templateParameters.push(stimulus)\n}"
+        }
+      ],
       "title": "SART loop",
       "_tab": "Scripts",
-      "_collapsed": false
+      "_collapsed": false,
+      "tardy": true,
+      "indexParameter": ""
     },
     "66": {
       "id": "66",
@@ -228,67 +174,45 @@
         "77",
         "81"
       ],
-      "files": {
-        "rows": []
-      },
-      "responses": {
-        "rows": [
-          [
-            "",
-            "",
-            "",
-            ""
-          ]
-        ]
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": [
-          [
-            {
-              "title": "",
-              "message": "before:prepare",
-              "code": "//nogo反応をデフォルトとして，反応と正誤判定を指定しておく\nthis.data.response = \"nogo\";\n\nif(this.parameters.type == \"go\"){\n    this.data.correct = \"incorrect\";\n}\nelse if(this.parameters.type == \"nogo\"){\n  this.data.correct = \"correct\";\n}\n\n//go反応があった場合に反応記録と正誤判定\nthis.options.events['keypress(Space)'] = () =>\n{\n  if(this.parameters.type == \"go\"){\n    this.data.correct = \"correct\";\n  }\n  else if(this.parameters.type == \"nogo\"){\n    this.data.correct = \"incorrect\";\n  }\n  this.data.response = \"go\";\n}"
-            }
-          ]
-        ]
-      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "//nogo反応をデフォルトとして，反応と正誤判定を指定しておく\nthis.data.response = \"nogo\";\n\nif(this.parameters.type == \"go\"){\n    this.data.correct = \"incorrect\";\n}\nelse if(this.parameters.type == \"nogo\"){\n  this.data.correct = \"correct\";\n}\n\n//go反応があった場合に反応記録と正誤判定\nthis.options.events['keypress(Space)'] = () =>\n{\n  if(this.parameters.type == \"go\"){\n    this.data.correct = \"correct\";\n  }\n  else if(this.parameters.type == \"nogo\"){\n    this.data.correct = \"incorrect\";\n  }\n  this.data.response = \"go\";\n}"
+        }
+      ],
       "title": "trial",
-      "_tab": "Content"
+      "_tab": "Scripts"
     },
     "77": {
       "id": "77",
       "type": "lab.html.Screen",
-      "files": {
-        "rows": []
-      },
-      "responses": {
-        "rows": []
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": []
-      },
+      "files": [],
+      "responses": [],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
       "title": "go_nogo",
       "_tab": "Content",
       "content": "<main class=\"content-horizontal-center content-vertical-center\">\n  <div>\n    <span style = \"font-size: 6vh\">${this.parameters.item}</span>\n  </div>\n</main>",
@@ -298,97 +222,73 @@
     "81": {
       "id": "81",
       "type": "lab.html.Screen",
-      "files": {
-        "rows": []
-      },
-      "responses": {
-        "rows": []
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": [
-          [
-            {
-              "title": "",
-              "message": "",
-              "code": ""
-            }
-          ]
-        ]
-      },
+      "files": [],
+      "responses": [],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
       "title": "ITI",
-      "_tab": "Behavior",
+      "_tab": "Scripts",
       "timeout": "2000"
     },
     "87": {
       "id": "87",
       "type": "lab.html.Screen",
-      "files": {
-        "rows": []
-      },
-      "responses": {
-        "rows": [
-          [
-            "taskRelated",
-            "click",
-            "button#taskRelatedBtn",
-            ""
-          ],
-          [
-            "taskUnrelatedIntention",
-            "click",
-            "button#taskUnrelatedIntentionBtn",
-            ""
-          ],
-          [
-            "nothing",
-            "click",
-            "button#nothingBtn",
-            ""
-          ],
-          [
-            "taskUnrelatedUnintention",
-            "click",
-            "button#ttaskUnrelatedUnintentionBtn",
-            ""
-          ]
-        ]
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": [
-          [
-            {
-              "title": "",
-              "message": "before:prepare",
-              "code": "//選択順は参加者ごとにランダム\n\nthis.options.content = this.state.esmHtml"
-            }
-          ]
-        ]
-      },
+      "files": [],
+      "responses": [
+        {
+          "label": "taskRelated",
+          "event": "click",
+          "target": "button#taskRelatedBtn",
+          "filter": ""
+        },
+        {
+          "label": "taskUnrelatedIntention",
+          "event": "click",
+          "target": "button#taskUnrelatedIntentionBtn",
+          "filter": ""
+        },
+        {
+          "label": "nothing",
+          "event": "click",
+          "target": "button#nothingBtn",
+          "filter": ""
+        },
+        {
+          "label": "taskUnrelatedUnintention",
+          "event": "click",
+          "target": "button#taskUnrelatedUnintentionBtn",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "before:prepare",
+          "code": "//選択順は参加者ごとにランダム\n\nthis.options.content = this.state.esmHtml"
+        }
+      ],
       "title": "ESM",
       "content": "",
-      "_tab": "Behavior"
+      "_tab": "Scripts"
     },
     "88": {
       "id": "88",
@@ -400,7 +300,7 @@
         "columns": [
           {
             "name": "trialNo",
-            "type": "string"
+            "type": "number"
           }
         ],
         "rows": [
@@ -409,56 +309,35 @@
           ],
           [
             "14"
-          ],
-          [
-            "18"
-          ],
-          [
-            "22"
-          ],
-          [
-            "26"
           ]
         ]
       },
       "sample": {
         "mode": "draw-shuffle"
       },
-      "files": {
-        "rows": []
-      },
-      "responses": {
-        "rows": [
-          [
-            "",
-            "",
-            "",
-            ""
-          ]
-        ]
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": [
-          [
-            {
-              "title": "",
-              "message": "",
-              "code": ""
-            }
-          ]
-        ]
-      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [
+        {
+          "title": "",
+          "message": "",
+          "code": ""
+        }
+      ],
       "title": "SART block",
       "_tab": "Scripts"
     },
@@ -469,33 +348,23 @@
         "38",
         "87"
       ],
-      "files": {
-        "rows": []
-      },
-      "responses": {
-        "rows": [
-          [
-            "",
-            "",
-            "",
-            ""
-          ]
-        ]
-      },
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
-      "messageHandlers": {
-        "rows": []
-      },
+      "files": [],
+      "responses": [
+        {
+          "label": "",
+          "event": "",
+          "target": "",
+          "filter": ""
+        }
+      ],
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
+      "messageHandlers": [],
       "title": "SART sequence",
       "_tab": "Scripts",
       "_collapsed": false
@@ -508,17 +377,13 @@
         "10",
         "35"
       ],
-      "parameters": {
-        "rows": [
-          [
-            {
-              "name": "",
-              "value": "",
-              "type": "string"
-            }
-          ]
-        ]
-      },
+      "parameters": [
+        {
+          "name": "",
+          "value": "",
+          "type": "string"
+        }
+      ],
       "plugins": [
         {
           "type": "lab.plugins.Metadata"
@@ -529,13 +394,15 @@
         "description": "",
         "repository": "",
         "contributors": "Masanori Kobayashi"
-      }
+      },
+      "messageHandlers": [],
+      "files": []
     }
   },
   "version": [
     20,
-    0,
-    1
+    2,
+    4
   ],
   "files": {
     "files": {

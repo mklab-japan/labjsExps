@@ -20,6 +20,7 @@ const study = lab.util.fromObject({
     "repository": "",
     "contributors": "Masanori Kobayashi"
   },
+  "messageHandlers": {},
   "files": {},
   "responses": {},
   "content": [
@@ -56,7 +57,9 @@ const study = lab.util.fromObject({
       "files": {
         "inst.001.png": "embedded\u002F3c3debfd0f862e2cd8b74bd5429a56760959056bfb6ba3c435ae0e1cc2442603.png"
       },
-      "responses": {},
+      "responses": {
+        "": ""
+      },
       "parameters": {},
       "messageHandlers": {},
       "title": "Instruction"
@@ -64,7 +67,9 @@ const study = lab.util.fromObject({
     {
       "type": "lab.flow.Sequence",
       "files": {},
-      "responses": {},
+      "responses": {
+        "": ""
+      },
       "parameters": {},
       "messageHandlers": {
         "before:prepare": function anonymous(
@@ -95,7 +100,9 @@ this.state.esmHtml = esmHtml;
         {
           "type": "lab.html.Screen",
           "files": {},
-          "responses": {},
+          "responses": {
+            "": ""
+          },
           "parameters": {},
           "messageHandlers": {},
           "title": "Start",
@@ -106,26 +113,19 @@ this.state.esmHtml = esmHtml;
           "type": "lab.flow.Loop",
           "templateParameters": [
             {
-              "trialNo": "10"
+              "trialNo": 10
             },
             {
-              "trialNo": "14"
-            },
-            {
-              "trialNo": "18"
-            },
-            {
-              "trialNo": "22"
-            },
-            {
-              "trialNo": "26"
+              "trialNo": 14
             }
           ],
           "sample": {
             "mode": "draw-shuffle"
           },
           "files": {},
-          "responses": {},
+          "responses": {
+            "": ""
+          },
           "parameters": {},
           "messageHandlers": {},
           "title": "SART block",
@@ -133,7 +133,9 @@ this.state.esmHtml = esmHtml;
           "template": {
             "type": "lab.flow.Sequence",
             "files": {},
-            "responses": {},
+            "responses": {
+              "": ""
+            },
             "parameters": {},
             "messageHandlers": {},
             "title": "SART sequence",
@@ -146,7 +148,9 @@ this.state.esmHtml = esmHtml;
                   "n": ""
                 },
                 "files": {},
-                "responses": {},
+                "responses": {
+                  "": ""
+                },
                 "parameters": {},
                 "messageHandlers": {
                   "before:prepare": function anonymous(
@@ -155,67 +159,92 @@ let stimuliList = [];
 
 let target = '3'
 
-target = {item: target, type: 'nogo'}
+let targetItem = {
+  item: target, 
+  type: 'nogo'
+}
 
 let nontargetList = ['1', '2', '4', '5', '6', '7', '8', '9']
 
 for(i in nontargetList)
 {
-  nontargetList[i] = {item: nontargetList[i], type: 'go'}
+  nontargetList[i] = {
+    item: nontargetList[i], 
+    type: 'go'
+  }
 }
 
 let maxTrialNo = this.parameters.trialNo;
 
 let firstItemList = this.random.sample(nontargetList, 1)
-stimuliList = firstItemList
 
-let lastItemList = this.random.sample(nontargetList, 5)
-
-let midItemList = this.random.sample(nontargetList, maxTrialNo - 7);
+let lastItemList = this.random.sample(nontargetList, 5, replacement=true)
 
 let targetNo;
 
-if(maxTrialNo = 10)
+let midItemList = []
+
+if(maxTrialNo == 10)
 {
   targetNo = 1
+  midItemList.push(targetItem);
 }
-else if(maxTrialNo >= 14 && maxTrialNo <= 22)
+else if(maxTrialNo == 14 || maxTrialNo == 18)
 {
   targetNo = 2
+  for(i = 0; i < targetNo; i++)
+  {
+    midItemList.push(targetItem);
+  }
 }
-else if(maxTrialNo > 22)
+else if(maxTrialNo == 22 || maxTrialNo == 26)
 {
   targetNo = 3
+  for(i = 0; i < targetNo; i++)
+  {
+    midItemList.push(targetItem);
+  }
 }
 
-for(i = 0; i < targetNo; i++)
+let nontargetNo = maxTrialNo - (6 + targetNo);
+
+let midNontargetList = this.random.sample(nontargetList, nontargetNo, replacement=true);
+
+for (item of midNontargetList)
 {
-  midItemList.push(target);
+  midItemList.push(item)
 }
 
 midItemList = this.random.shuffle(midItemList)
 
-for(i in midItemList)
+for(item of firstItemList)
 {
-  stimuliList.push(midItemList[i])
+  stimuliList.push(item)
 }
-for(i in lastItemList)
+for(item of midItemList)
 {
-  stimuliList.push(lastItemList[i])
+  stimuliList.push(item)
+}
+for(item of lastItemList)
+{
+  stimuliList.push(item)
 }
 
-for(i in stimuliList)
+for(stimulus of stimuliList)
 {
-  this.options.templateParameters.push(stimuliList[i])
+  this.options.templateParameters.push(stimulus)
 }
 }
                 },
                 "title": "SART loop",
+                "tardy": true,
                 "shuffleGroups": [],
                 "template": {
                   "type": "lab.flow.Sequence",
                   "files": {},
-                  "responses": {},
+                  "responses": {
+                    "": ""
+                  },
                   "parameters": {},
                   "messageHandlers": {
                     "before:prepare": function anonymous(
@@ -274,7 +303,7 @@ this.options.events['keypress(Space)'] = () =>
                   "click button#taskRelatedBtn": "taskRelated",
                   "click button#taskUnrelatedIntentionBtn": "taskUnrelatedIntention",
                   "click button#nothingBtn": "nothing",
-                  "click button#ttaskUnrelatedUnintentionBtn": "taskUnrelatedUnintention"
+                  "click button#taskUnrelatedUnintentionBtn": "taskUnrelatedUnintention"
                 },
                 "parameters": {},
                 "messageHandlers": {
